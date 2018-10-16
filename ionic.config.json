@@ -1,0 +1,7 @@
+{
+  "name": "Reciclapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
