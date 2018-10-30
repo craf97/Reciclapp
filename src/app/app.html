@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<ion-menu [content]="contenido">
   <ion-header>
     <ion-toolbar>
       <ion-title>Menu</ion-title>
@@ -10,10 +10,22 @@
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+      <button ion-item *ngIf="usuarioEstaConectado"
+      (click)="llamarPagina(homepage)">Inicio</button>
+      <button ion-item
+      (click)="llamarConsejos()">Consejos</button>
+      <button ion-item
+      (click)="llamarMateria()">Materiales R</button>
+      <button ion-item
+      (click)="llamarMapa()">Mapa R</button>
+      <button ion-item *ngIf="!usuarioEstaConectado"
+      (click)="llamarPagina(iniciarSesion)">Iniciar sesion</button>
+      <button ion-item *ngIf="usuarioEstaConectado"
+      (click)="terminarSesion()">Terminar sesion</button>
     </ion-list>
   </ion-content>
 
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="iniciarSesion" #contenido swipeBackEnabled="false"></ion-nav>
